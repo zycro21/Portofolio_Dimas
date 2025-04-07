@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Warna global */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,8 +15,10 @@
   }
 }
 
+/* Global style */
 body {
+  @apply antialiased;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }

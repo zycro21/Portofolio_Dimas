@@ -6,3 +6,15 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique 
+  description String?  @default("No description provided")
+  image_url   String?  @default("https://via.placeholder.com/150")
+  github_url  String?  @default("https://github.com/")
+  live_url    String?  @default("https://example.com")
+  created_at  DateTime @default(now())
+
+  @@map("projects") // Menghubungkan model "Project" ke tabel "projects"
+}
