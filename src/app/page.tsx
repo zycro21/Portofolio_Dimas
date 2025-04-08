@@ -109,7 +109,7 @@ export default function Home() {
           isCollapsed ? "md:ml-[88px]" : "md:ml-[232px]"
         }`}
       >
-        <div className="max-w-screen-xl mx-auto px-4">
+        <div className="max-w-screen-lg mx-auto px-4">
           {/* Hero Section */}
           <motion.section
             variants={heroVariants}

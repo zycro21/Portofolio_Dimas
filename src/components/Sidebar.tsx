@@ -81,15 +81,22 @@ export default function Sidebar() {
             return (
               <Link key={i} href={item.href}>
                 <div
-                  className={`flex items-center py-2 px-3 rounded-md text-sm font-medium transition-all duration-300
-            ${
-              isActive
-                ? "bg-gray-800 text-white scale-[1.03]"
-                : "text-gray-300 hover:bg-gray-800 hover:scale-105"
-            }`}
+                  className={`group relative flex items-center py-2 px-3 rounded-md text-sm font-medium transition-all duration-300
+        ${
+          isActive
+            ? "bg-gray-800 text-white scale-[1.03]"
+            : "text-gray-300 hover:bg-gray-800 hover:scale-105"
+        }`}
                 >
                   <span className="text-lg">{item.icon}</span>
                   {!isCollapsed && <span className="ml-3">{item.name}</span>}
+
+                  {/* Tooltip */}
+                  {isCollapsed && (
+                    <span className="absolute left-full ml-2 top-1/2 -translate-y-1/2 whitespace-nowrap bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 z-50 shadow-lg">
+                      {item.name}
+                    </span>
+                  )}
                 </div>
               </Link>
             );
