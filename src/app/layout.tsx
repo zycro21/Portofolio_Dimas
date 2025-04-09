@@ -11,8 +11,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
+  title: "Portfolio (Dimas)",
   description: "Personal portfolio of a backend developer",
+  icons: {
+    icon: "/favicon.svg", // Pastikan file ini ada di folder /public
+  },
 };
 
 export default function RootLayout({
