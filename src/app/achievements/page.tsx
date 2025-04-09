@@ -30,8 +30,7 @@ export default function AchievementsPage() {
           <motion.section
             className="mb-20"
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             custom={0}
             variants={sectionVariants}
           >
@@ -53,8 +52,7 @@ export default function AchievementsPage() {
           <motion.section
             className="mb-20"
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             custom={1}
             variants={sectionVariants}
           >

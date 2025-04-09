@@ -20,37 +20,46 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-      title: "Portofolio Website",
-      thumbnail: "/images/portfolio.png",
+      title: "Portofolio (Mochamad Dimas Putra Hermawan)",
+      thumbnail: "/images/project_2.png",
       description:
-        "Website pribadi untuk menampilkan profil, proyek, dan kontak.",
-      techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      projectUrl: "https://your-portfolio-link.com",
-      repoUrl: "https://github.com/username/portfolio",
-    },
-    {
-      title: "Project Management API",
-      thumbnail: "/images/api.png",
-      description: "Backend API untuk mengelola proyek, tugas, dan user roles.",
-      techStack: ["Express", "PostgreSQL", "Prisma"],
+        "Website ini merupakan portofolio pribadi interaktif yang menampilkan profil, keahlian, proyek-proyek, pengalaman, dan contact form.",
+      techStack: ["Next.ts", "Tailwind CSS", "Framer Motion"],
       projectUrl: "-",
-      repoUrl: "https://github.com/username/project-api",
+      repoUrl: "https://github.com/zycro21/Portofolio_Dimas",
     },
     {
-      title: "Markdown Blog Generator",
-      thumbnail: "/images/blog.png",
+      title: "Project Planner (Trekit)",
+      thumbnail: "/images/project_3.png",
+      description:
+        "Trekit adalah aplikasi Web App manajemen objek perjalanan yang memudahkan pengguna dalam merencanakan, mengatur, dan memantau itinerary perjalanan mereka.",
+      techStack: [
+        "NEXT",
+        "Typescript",
+        "Express",
+        "PostgreSQL",
+        "Prisma",
+        "Docker",
+      ],
+      projectUrl: "-",
+      repoUrl: "https://github.com/zycro21/project_planner_trekit/tree/main",
+    },
+    {
+      title: "TemuDataku",
+      thumbnail: "/images/project_5.png",
       description: "CLI tool untuk generate blog statis dari markdown file.",
-      techStack: ["Node.js", "Commander.js"],
+      techStack: ["MySQL", "JavaScript", "Express", "React.js"],
       projectUrl: "-",
-      repoUrl: "-",
+      repoUrl: "https://github.com/zycro21/temudataku",
     },
     {
-      title: "Markdown Blog Generator",
-      thumbnail: "/images/blog.png",
-      description: "CLI tool untuk generate blog statis dari markdown file.",
-      techStack: ["Node.js", "Commander.js"],
+      title: "Game-X",
+      thumbnail: "/images/project_4.png",
+      description:
+        "Game-X adalah aplikasi berbasis web yang digunakan sebagai tempat melakukan penjualan dan pembelian untuk game.",
+      techStack: ["MySQL", "JavaScript", "Express", "React.js"],
       projectUrl: "-",
-      repoUrl: "-",
+      repoUrl: "https://github.com/zycro21/projek-gamex",
     },
   ];
 
@@ -63,10 +72,10 @@ export default function ProjectsPage() {
         }`}
       >
         <div className="max-w-screen-xl mx-auto px-4">
+          {/* Ubah dari whileInView ke animate */}
           <motion.section
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             custom={0}
             variants={sectionVariants}
             className="mb-20"
@@ -76,7 +85,15 @@ export default function ProjectsPage() {
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-6">
               {projects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
+                <motion.div
+                  key={index}
+                  custom={index}
+                  variants={sectionVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <ProjectCard {...project} />
+                </motion.div>
               ))}
             </div>
           </motion.section>

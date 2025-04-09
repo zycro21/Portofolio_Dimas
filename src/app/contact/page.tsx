@@ -4,6 +4,7 @@ import Sidebar from "@/src/components/Sidebar";
 import { useSidebar } from "@/src/context/SidebarContext";
 import Divider from "@/src/components/DividerLine";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const { isCollapsed } = useSidebar();
@@ -77,6 +78,23 @@ export default function ContactPage() {
     },
   ];
 
+  const titleVariant = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const fadeVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+      },
+    }),
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <Sidebar />
@@ -87,23 +105,44 @@ export default function ContactPage() {
       >
         <div className="max-w-screen-lg mx-auto px-4">
           {/* ===== TITLE & DESCRIPTION ===== */}
-          <div className="text-left mb-6 mt-2">
+          <motion.div
+            className="text-left mb-6 mt-2"
+            initial="hidden"
+            animate="visible"
+            variants={titleVariant}
+          >
             <h1 className="text-4xl font-bold text-green-400 mb-2">Contact</h1>
-            <p className="text-gray-300 text-lg">
-              Ingin terhubung? Berikut beberapa cara untuk menghubungi saya.
-              Bisa lewat email, media sosial, atau langsung kirim pesan lewat
-              form di bawah!
-            </p>
-          </div>
+          </motion.div>
+
+          <motion.p
+            className="text-gray-300 text-lg mb-4"
+            initial="hidden"
+            animate="visible"
+            variants={fadeVariant}
+            custom={1}
+          >
+            Ingin terhubung? Berikut beberapa cara untuk menghubungi saya. Bisa
+            lewat email, media sosial, atau langsung kirim pesan lewat form di
+            bawah!
+          </motion.p>
 
           <Divider />
 
           {/* ===== CONTACT CARDS ===== */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {socialContacts.map((contact, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`relative flex justify-between items-center p-6 rounded-xl bg-gradient-to-r ${contact.color} shadow-lg h-64 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl`}
+                className={`relative flex justify-between items-center p-6 rounded-xl bg-gradient-to-r ${contact.color} shadow-lg h-64 overflow-hidden`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.5 }}
+                whileHover={{
+                  scale: 1.05,
+                  rotate: 1,
+                  boxShadow: "0px 15px 25px rgba(0,0,0,0.3)",
+                }}
+                whileTap={{ scale: 0.98 }}
               >
                 {/* Background Logo Transparan, lebih ke kiri */}
                 <div
@@ -111,14 +150,16 @@ export default function ContactPage() {
                   style={{
                     backgroundImage: `url(${contact.logo})`,
                     backgroundSize: "80%",
-                    backgroundPosition: "left 0.5rem center", // lebih ke kiri
+                    backgroundPosition: "left 0.5rem center",
                   }}
                 ></div>
 
                 {/* Konten kiri */}
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold">{contact.cta}</h3>
-                  <p className="text-sm mb-4">{contact.username}</p>
+                  <p className={`text-sm mb-4 ${contact.font}`}>
+                    {contact.username}
+                  </p>
                   <a
                     href={contact.url}
                     target="_blank"
@@ -129,15 +170,19 @@ export default function ContactPage() {
                   </a>
                 </div>
 
-                {/* Logo kanan versi jelas, lebih besar dan ada border */}
-                <div className="relative z-10 w-20 h-20 flex items-center justify-center rounded-full bg-white/20 border border-white/40 backdrop-blur-sm">
+                {/* Logo kanan versi jelas, animasi hover */}
+                <motion.div
+                  className="relative z-10 w-20 h-20 flex items-center justify-center rounded-full bg-white/20 border border-white/40 backdrop-blur-sm"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <img
                     src={contact.logo}
                     alt={contact.name}
                     className="w-12 h-12 object-contain"
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
 
@@ -145,9 +190,14 @@ export default function ContactPage() {
 
           {/* ===== EMAIL FORM ===== */}
           <div className="bg-gray-800 p-6 rounded-lg mt-8">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">
+            <motion.h2
+              className="text-2xl font-bold mb-4 text-green-400"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Contact Me Now
-            </h2>
+            </motion.h2>
 
             {/* Input: Name & Email sejajar */}
             <div className="flex flex-col md:flex-row gap-4 mb-4">
