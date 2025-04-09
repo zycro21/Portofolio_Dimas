@@ -140,7 +140,7 @@ export default function Home() {
               className="mt-6 text-xl text-gray-300 leading-relaxed hover:text-white transition-colors duration-300 max-w-4xl"
               variants={itemVariants}
             >
-              I'm a passionate{" "}
+              I&apos;m a passionate
               <strong className="text-white">Backend Developer</strong> with an
               interest in <strong className="text-white">DevOps</strong>.
               Currently, I’m diving deep into{" "}

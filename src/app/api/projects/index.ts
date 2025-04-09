@@ -11,6 +11,7 @@ export default async function handler(
       const projects = await prisma.project.findMany();
       return res.status(200).json(projects);
     } catch (error) {
+      console.error(error); // ✅ dianggap "used"
       return res.status(500).json({ error: "Gagal mengambil data proyek" });
     }
   }
@@ -44,6 +45,7 @@ export default async function handler(
 
       return res.status(201).json(createdProject);
     } catch (error) {
+      console.error(error); // ✅ dianggap "used"
       return res.status(500).json({ error: "Gagal menambahkan proyek" });
     }
   }

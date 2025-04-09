@@ -13,7 +13,7 @@ import {
   deleteDoc,
   doc,
   setDoc,
-  updateDoc,
+  Timestamp,
 } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -24,7 +24,7 @@ interface Message {
   name: string;
   avatar: string;
   text: string;
-  createdAt?: any;
+  createdAt?: Timestamp;
 }
 
 export default function ChatPage() {

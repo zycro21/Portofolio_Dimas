@@ -2,7 +2,6 @@
 
 import Sidebar from "@/src/components/Sidebar";
 import { useSidebar } from "@/src/context/SidebarContext";
-import Divider from "@/src/components/DividerLine";
 import { motion } from "framer-motion";
 import ProjectCard from "@/src/components/ProjectCard";
 

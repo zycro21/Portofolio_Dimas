@@ -26,6 +26,7 @@ export default async function handler(
 
       return res.status(200).json(project);
     } catch (error) {
+      console.error(error); // 👈 agar tidak dianggap "unused"
       return res.status(500).json({ error: "Gagal mengambil proyek" });
     }
   }
@@ -69,6 +70,7 @@ export default async function handler(
 
       return res.status(200).json(updatedProject);
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: "Gagal mengupdate proyek" });
     }
   }
@@ -90,6 +92,7 @@ export default async function handler(
 
       return res.status(200).json({ message: "Proyek berhasil dihapus" });
     } catch (error) {
+      console.error(error);
       return res.status(500).json({ error: "Gagal menghapus proyek" });
     }
   }
