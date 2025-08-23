@@ -64,7 +64,7 @@ export default function ProjectsPage() {
       title: "Website Klinik Mental - Implementasi Machine Learning",
       thumbnail: "/images/project_6.png",
       description:
-        "Website Klinik Mental berbasis web yang dibangun dengan Golang (Gin) untuk backend dan Next.js untuk frontend. Website ini dilengkapi dengan fitur Machine Learning untuk melakukan prediksi kesehatan mental berdasarkan data pasien.",
+        "Website Klinik Mental berbasis web yang dilengkapi dengan fitur Machine Learning untuk melakukan prediksi kesehatan mental berdasarkan data pasien.",
       techStack: [
         "Go (Gin)",
         "Next.js",
@@ -72,7 +72,10 @@ export default function ProjectsPage() {
         "Machine Learning (Python)",
       ],
       projectUrl: "-",
-      repoUrl: "https://github.com/zycro21/mental_health_klinik",
+      repoUrl: [
+        "https://github.com/zycro21/mental_health_klinik",
+        "https://github.com/zycro21/mental_health_machine_learning_API",
+      ],
     },
   ];
 

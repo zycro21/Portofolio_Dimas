@@ -1,11 +1,14 @@
+// components/ProjectCard.tsx
 import Image from "next/image";
+
+type RepoUrl = string | string[];
 
 interface ProjectCardProps {
   title: string;
   thumbnail: string;
   description: string;
   techStack: string[];
-  repoUrl: string;
+  repoUrl: RepoUrl;        // <- union
   projectUrl: string;
 }
 
@@ -17,8 +20,25 @@ export default function ProjectCard({
   repoUrl,
   projectUrl,
 }: ProjectCardProps) {
-  const isRepoAvailable = repoUrl !== "-";
-  const isProjectAvailable = projectUrl !== "-";
+  // Normalisasi: jadikan array bersih dari tanda "-"
+  const repoUrls = Array.isArray(repoUrl)
+    ? repoUrl.filter((u) => u && u !== "-")
+    : repoUrl && repoUrl !== "-"
+    ? [repoUrl]
+    : [];
+
+  const hasRepo = repoUrls.length > 0;
+  const hasProject = projectUrl && projectUrl !== "-";
+
+  // Buat label tombol repo dari nama repo (bagian setelah / terakhir)
+  const repoLabel = (url: string, idx: number) => {
+    try {
+      const name = new URL(url).pathname.split("/").filter(Boolean).pop();
+      return name || `Repo ${idx + 1}`;
+    } catch {
+      return `Repo ${idx + 1}`;
+    }
+  };
 
   return (
     <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-md mx-auto transform transition duration-500 hover:scale-[1.03] hover:rotate-[0.5deg] hover:shadow-2xl hover:ring-2 hover:ring-green-400/60">
@@ -27,9 +47,9 @@ export default function ProjectCard({
         <Image
           src={thumbnail}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-md"
+          fill
+          className="rounded-md object-cover"
+          sizes="(max-width: 768px) 100vw, 400px"
         />
       </div>
 
@@ -52,40 +72,42 @@ export default function ProjectCard({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-2">
         {/* View Project */}
         <a
-          href={isProjectAvailable ? projectUrl : undefined}
+          href={hasProject ? projectUrl : undefined}
           target="_blank"
           rel="noopener noreferrer"
           className={`px-4 py-2 rounded font-medium text-white transition-colors duration-300 ${
-            isProjectAvailable
+            hasProject
               ? "bg-green-500 hover:bg-green-600"
               : "bg-gray-600 cursor-not-allowed"
           }`}
           onClick={(e) => {
-            if (!isProjectAvailable) e.preventDefault();
+            if (!hasProject) e.preventDefault();
           }}
         >
           View Project
         </a>
 
-        {/* View Repo */}
-        <a
-          href={isRepoAvailable ? repoUrl : undefined}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`px-4 py-2 rounded font-medium text-white transition-colors duration-300 ${
-            isRepoAvailable
-              ? "bg-blue-500 hover:bg-blue-600"
-              : "bg-gray-600 cursor-not-allowed"
-          }`}
-          onClick={(e) => {
-            if (!isRepoAvailable) e.preventDefault();
-          }}
-        >
-          View Repo
-        </a>
+        {/* View Repo(s) */}
+        {hasRepo ? (
+          repoUrls.map((url, i) => (
+            <a
+              key={url}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded font-medium text-white bg-blue-500 hover:bg-blue-600 transition-colors duration-300"
+            >
+              {repoLabel(url, i)}
+            </a>
+          ))
+        ) : (
+          <span className="px-4 py-2 rounded font-medium text-white bg-gray-600 cursor-not-allowed">
+            View Repo
+          </span>
+        )}
       </div>
     </div>
   );

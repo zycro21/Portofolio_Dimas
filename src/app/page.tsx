@@ -141,7 +141,7 @@ export default function Home() {
               variants={itemVariants}
             >
               I&apos;m a passionate
-              <strong className="text-white">Backend Developer</strong> with an
+              <strong className="text-white"> Backend Developer</strong> with an
               interest in <strong className="text-white">DevOps</strong>.
               Currently, I’m diving deep into{" "}
               <strong className="text-white">Machine Learning</strong> and{" "}
