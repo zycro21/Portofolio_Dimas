@@ -141,8 +141,8 @@ export default function Home() {
               variants={itemVariants}
             >
               I&apos;m a passionate
-              <strong className="text-white"> Backend Developer</strong> with an
-              interest in <strong className="text-white">DevOps</strong>.
+              <strong className="text-white"> Fullstack Developer specialist in Backend-Side </strong> with an
+              interest in <strong className="text-white">Dev-Ops</strong>.
               Currently, I’m diving deep into{" "}
               <strong className="text-white">Machine Learning</strong> and{" "}
               <strong className="text-white">Artificial Intelligence</strong>. I

@@ -201,9 +201,8 @@ export default function AboutPage() {
                 place="Sidoarjo"
                 duration="2019 - 2021"
                 details={[
-                  "Mengikuti lomba Olimpiade Matematika tingkat kabupaten",
+                  "Mengikuti lomba Olimpiade Kebumian tingkat kabupaten",
                   "Menjadi anggota aktif klub Karya Ilmiah Remaja (KIR)",
-                  "Bertugas sebagai panitia IT dalam event sekolah seperti pentas seni dan seminar",
                 ]}
               />
             </div>

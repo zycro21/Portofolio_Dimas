@@ -11,10 +11,35 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio (Dimas)",
-  description: "Personal portfolio of a backend developer",
+  title: "Portfolio (Mochamad Dimas Putra Hermawan)",
+  description: "Personal portfolio of Mochamad Dimas Putra Hermawan, a FullStack developer and Software Engineer",
   icons: {
     icon: "/favicon.svg", // Pastikan file ini ada di folder /public
+  },
+  // Tambahin Open Graph
+  openGraph: {
+    title: "Portfolio (Mochamad Dimas Putra Hermawan)",
+    description: "Personal portfolio of Mochamad Dimas Putra Hermawan, a FullStack developer and Software Engineer",
+    url: "https://portofolio-dimasputra.vercel.app/",
+    siteName: "Portfolio Dimas",
+    images: [
+      {
+        url: "https://portofolio-dimasputra.vercel.app/images/metadata.png",
+        width: 1200,
+        height: 630,
+        alt: "Preview Portfolio Dimas",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+
+  // Tambahin Twitter card
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio (Mochamad Dimas Putra Hermawan)",
+    description: "Personal portfolio of Mochamad Dimas Putra Hermawan, a FullStack developer and Software Engineer",
+    images: ["https://portofolio-dimasputra.vercel.app/images/metadata.png"],
   },
 };
 
