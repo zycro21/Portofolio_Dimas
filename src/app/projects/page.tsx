@@ -48,7 +48,7 @@ export default function ProjectsPage() {
       thumbnail: "/images/project_5.png",
       description: "CLI tool untuk generate blog statis dari markdown file.",
       techStack: ["MySQL", "JavaScript", "Express", "React.js"],
-      projectUrl: "-",
+      projectUrl: "https://temudataku.com",
       repoUrl: "https://github.com/zycro21/temudataku",
     },
     {
