@@ -23,7 +23,7 @@ export default function ProjectsPage() {
       thumbnail: "/images/project_2.png",
       description:
         "Website ini merupakan portofolio pribadi interaktif yang menampilkan profil, keahlian, proyek-proyek, pengalaman, dan contact form.",
-      techStack: ["Next.ts", "Tailwind CSS", "Framer Motion"],
+      techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
       projectUrl: "-",
       repoUrl: "https://github.com/zycro21/Portofolio_Dimas",
     },
@@ -33,9 +33,9 @@ export default function ProjectsPage() {
       description:
         "Trekit adalah aplikasi Web App manajemen objek perjalanan yang memudahkan pengguna dalam merencanakan, mengatur, dan memantau itinerary perjalanan mereka.",
       techStack: [
-        "NEXT",
+        "Next.js",
         "Typescript",
-        "Express",
+        "Node.js (Express)",
         "PostgreSQL",
         "Prisma",
         "Docker",
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
       title: "TemuDataku",
       thumbnail: "/images/project_5.png",
       description: "CLI tool untuk generate blog statis dari markdown file.",
-      techStack: ["MySQL", "JavaScript", "Express", "React.js"],
+      techStack: ["PostgreSQL", "TypeScript", "Node.js", "Next.js", "Docker"],
       projectUrl: "https://temudataku.com",
       repoUrl: "https://github.com/zycro21/temudataku",
     },
@@ -56,7 +56,7 @@ export default function ProjectsPage() {
       thumbnail: "/images/project_4.png",
       description:
         "Game-X adalah aplikasi berbasis web yang digunakan sebagai tempat melakukan penjualan dan pembelian untuk game.",
-      techStack: ["MySQL", "JavaScript", "Express", "React.js"],
+      techStack: ["MySQL", "PHP (Laravel)", "MongoDB", "React.js"],
       projectUrl: "-",
       repoUrl: "https://github.com/zycro21/projek-gamex",
     },
@@ -70,6 +70,7 @@ export default function ProjectsPage() {
         "Next.js",
         "PostgreSQL",
         "Machine Learning (Python)",
+        "Redis",
       ],
       projectUrl: "-",
       repoUrl: [
