@@ -49,7 +49,7 @@ export default function ProjectsPage() {
       description: "CLI tool untuk generate blog statis dari markdown file.",
       techStack: ["PostgreSQL", "TypeScript", "Node.js", "Next.js", "Docker"],
       projectUrl: "https://temudataku.com",
-      repoUrl: "https://github.com/zycro21/temudataku",
+      repoUrl: "https://github.com/zycro21/temudataku_solo_web",
     },
     {
       title: "Game-X",
