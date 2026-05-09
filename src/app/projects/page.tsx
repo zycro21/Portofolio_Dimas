@@ -19,6 +19,14 @@ export default function ProjectsPage() {
 
   const projects = [
     {
+      title: "TemuDataku",
+      thumbnail: "/images/project_5.png",
+      description: "CLI tool untuk generate blog statis dari markdown file.",
+      techStack: ["PostgreSQL", "TypeScript", "Node.js", "Next.js", "Docker"],
+      projectUrl: "https://temudataku.com",
+      repoUrl: "https://github.com/zycro21/temudataku_solo_web",
+    },
+    {
       title: "Portofolio (Mochamad Dimas Putra Hermawan)",
       thumbnail: "/images/project_2.png",
       description:
@@ -42,14 +50,6 @@ export default function ProjectsPage() {
       ],
       projectUrl: "-",
       repoUrl: "https://github.com/zycro21/project_planner_trekit/tree/main",
-    },
-    {
-      title: "TemuDataku",
-      thumbnail: "/images/project_5.png",
-      description: "CLI tool untuk generate blog statis dari markdown file.",
-      techStack: ["PostgreSQL", "TypeScript", "Node.js", "Next.js", "Docker"],
-      projectUrl: "https://temudataku.com",
-      repoUrl: "https://github.com/zycro21/temudataku_solo_web",
     },
     {
       title: "Game-X",
